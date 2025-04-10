@@ -54,7 +54,7 @@ outfield_df['Cluster'] = cluster_labels
 role_mapping = {
     1: "Centre Back (Defensive)",
     2: "Centre Back (Ball-Playing)",
-    3: "All-Round Midfielder",
+    3: "All-Rounder",
     4: "Inverted Fullback / Direct Passer",
     5: "Holding Midfielder / Destroyer",
     6: "Full Back (Attacking)",
