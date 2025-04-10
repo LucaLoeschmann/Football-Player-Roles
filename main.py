@@ -8,7 +8,7 @@ from sklearn.metrics import silhouette_score
 import plotly.graph_objects as go
 
 # --- Streamlit Setup ---
-st.set_page_config(page_title="Player Clustering – Ian Graham Model", layout="wide")
+st.set_page_config(page_title="Player Clustering", layout="wide")
 
 # --- Load Data ---
 data_dir = "data/"
@@ -50,7 +50,7 @@ Z = linkage(pca_df, method="ward")
 cluster_labels = fcluster(Z, 12, criterion='maxclust')
 outfield_df['Cluster'] = cluster_labels
 
-# --- Final Role Mapping (Ian Graham inspired) ---
+# --- Final Role Mapping  ---
 role_mapping = {
     1: "Centre Back (Defensive)",
     2: "Centre Back (Ball-Playing)",
@@ -126,7 +126,7 @@ def create_radar_plot(df_percentiles, selected_players, radar_columns):
     return fig
 
 # --- Streamlit UI ---
-st.title("Player Clustering nach Ian Graham")
+st.title("Player Clustering")
 st.sidebar.header("Spielerauswahl")
 
 selected_player = st.sidebar.selectbox("Wähle einen Spieler", outfield_df['Player Name'].unique())
