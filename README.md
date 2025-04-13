@@ -10,7 +10,7 @@ This project clusters professional football players based on their **playing sty
 ## 📚 Table of Contents
 
 - [🎯 Project Overview](#-project-overview)
-- [🧪 Methodology](#-metholodgy)
+- [🧪 Methodology](#-methodolodgy)
 - [🎯 Project Goals](#-project-goals)
 - [✨ Key Features](#-key-features)
 - [🔧 Future Improvements](#-future-improvements)
