@@ -3,7 +3,7 @@
 This project clusters professional football players based on their **playing styles**, not just positions or quality. It uses advanced statistical techniques to uncover **tactical roles** from performance data – similar to approaches used by StatsBomb, Smarterscout, and Liverpool FC's analytics department.
 
 ## 🔗 Streamlit App  
-👉 [Click here to try the app](https://scouting25.streamlit.app/)
+👉 [Click here to try the app]([https://scouting25.streamlit.app/](https://football-player-clustering.streamlit.app))
 
 ---
 
@@ -20,14 +20,31 @@ This project clusters professional football players based on their **playing sty
 
 ## 📖 Project Overview
 
-This project explores unsupervised learning to identify **stylistic player roles** using match event data per 90 minutes. The goal is to uncover **underlying behavioral patterns**, such as:
+The traditional classification of football players into Defenders, Midfielders, and Forwards has long been outdated. For years, football analysts have moved beyond these oversimplified categories. While positional labels may still provide a rough idea of a player’s function, they fall short in capturing the full complexity of individual playing styles.
 
-- Inverted Fullbacks
-- Deep-Lying Playmakers
-- Press-Resistant Midfielders
-- Wide Creators
+The ongoing data revolution in elite football now makes it possible to identify **nuanced player roles** and to break them down further into specific profiles. What if players weren't defined solely by their position on paper — which is often static and fails to represent the fluid nature of a 90-minute match?  
+What if we could instead track and quantify a player’s **true role on the pitch**, across different situations, tactical instructions, and phases of play?
 
-All clusters are generated based on how players act on the pitch – not their nominal position.
+Beyond basic position groups, even more specific roles can vary significantly depending on:
+- tactical system
+- formation
+- and individual player traits
+- a players individual interpretation of a role  
+
+Two players listed as full-backs might play entirely different roles:
+- One may act as an attacking wide creator, overlapping like a winger,
+- the other may stay deep and focus solely on defensive duties.
+
+Likewise, a defensive midfielder (No. 6) might either:
+- dictate the game with his passing,
+- primarily function as a destroyer, breaking up opposition attacks.
+
+---
+
+To explore these ideas and expand my understanding of modern football, I began studying the concept of **stylistic player role clustering**. My goal was to develop a system that could help identify and interpret player functions beyond traditional positions.
+
+This project draws on insights from various academic papers, blog articles, and football analytics literature.  
+A special inspiration came from the book *"How to Win the Premier League"* by Ian Graham, former Director of Research at Liverpool FC — which sparked the initial motivation to build this system.
 
 ---
 
