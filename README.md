@@ -9,18 +9,16 @@ This project clusters professional football players based on their **playing sty
 
 ## 📚 Table of Contents
 
-- [Overview](#overview)
-- [Methodology](#methodology)
-- [Project Goals](#project-goals)
-- [Key Features](#key-features)
-- [Future Improvements](#future-improvements)
-- [Project Structure](#project-structure)
-- [Inspiration](#inspiration)
-- [Author](#author)
+- [🎯 Project Overview](#-project-overview)
+- [🧪 Methodology](#-metholodgy)
+- [🎯 Project Goals](#-project-goals)
+- [✨ Key Features](#-key-features)
+- [🔧 Future Improvements](#-future-improvements)
+- [📢 Disclaimer](#-disclaimer)
 
 ---
 
-## 📖 Overview
+## 📖 Project Overview
 
 This project explores unsupervised learning to identify **stylistic player roles** using match event data per 90 minutes. The goal is to uncover **underlying behavioral patterns**, such as:
 
