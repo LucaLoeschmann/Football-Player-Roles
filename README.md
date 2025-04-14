@@ -113,11 +113,8 @@ The map is designed as a **topological simplification** — a tool to aid intuit
 
 ## 🔧 Future Improvements
 
-- [ ] Add multi-player selection to UMAP to highlight multiple names
-- [ ] Enable uploading new player data for live role prediction
 - [ ] Integrate tracking data (heatmaps, zones)
 - [ ] Include player-season dynamics (year-over-year role shift)
-- [ ] Allow user-defined cluster counts
 - [ ] Add feedback loop for expert review of roles
 
 ---
