@@ -1,6 +1,6 @@
 # Football Player Role Explorer
 
-This project clusters professional football players based on their **playing styles**, not just positions or performance level. It leverages statistical modeling and dimensionality reduction to uncover **stylistic player roles** – inspired by modern approaches from clubs like Liverpool FC and platforms like StatsBomb or Smarterscout.
+This project clusters professional football players based on their **playing styles**, not just positions or performance level. It leverages statistical modeling and dimensionality reduction to uncover **stylistic player roles**.
 
 ## 🔗 Streamlit App
 👉 [Click here to try the app](https://football-player-clustering.streamlit.app)
