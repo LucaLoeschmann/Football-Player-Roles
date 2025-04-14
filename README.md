@@ -34,26 +34,26 @@ Likewise, a defensive midfielder (No. 6) might either:
 - Dictate the game with his passing
 - Function primarily as a destroyer, breaking up opposing attacks
 
-To explore these ideas and build a data-driven perspective on role interpretation, I created this clustering model that tries to answer: **How can we  group players based on what they actually do in the pitch?**
+To explore these ideas and build a data-driven perspective on role interpretation, I created this clustering model that tries to answer: How can we  group players based on what they actually do **on** the pitch?
 
 ---
 
 ## 🎯 Project Goals
 
 1. Identify **stylistic player archetypes** based on in-match behavior
-2. Provide a **comparison tool** which makes use of this role distinctions
-3. Visualize the high-dimensional structure of football styles in a **digestible format** (2 dimnensional)
+2. Provide a **comparison tool** that makes use of these role distinctions
+3. Visualize the high-dimensional structure of football styles in a **digestible format** (2-dimensional)
 4. Build a foundation for future **supervised models** of role classification
 
 ---
 
 ## 🔄 Data Collection & Preprocessing
 
-- **Data Source**: FBref.com (top 5 European leagues) - For more detail on the preprocessing, see my other project: [Football Player Analysis Tool](https://github.com/LucaLoeschmann/Football-Player-Analysis-25) where I'm using the oufield data from.
+- **Data Source**: FBref.com (top 5 European leagues) - For more detail on the preprocessing, see my other project: [Football Player Analysis Tool](https://github.com/LucaLoeschmann/Football-Player-Analysis-25) where I'm using the outfield data from.
   
 - **Feature Engineering**:
   - Per-90 normalization for all performance metrics
-  - Reducing the initial pool of 100+ features to a carefully selected subset using cross-validation. The chosen stats aim to reflect a wide spectrum of football actions — from attacking and possession to defensive contributions.
+  - Reducing the initial pool of 100+ features to a carefully selected subset using cross-validation. The chosen stats aim to reflect a wide spectrum of football actions, from attacking and possession to defensive contributions.
   - Aggregated by player-season
 - **Dimensionality Reduction**:
   - PCA with `n_components=0.93` (retaining ~93% explained variance)
@@ -96,9 +96,9 @@ The final clusters were **manually interpreted** and assigned descriptive role l
 - "Target Man"
 
 These roles are not absolute truths, but rather interpretative labels, based on statistical groupings, perceived on-pitch function, and personal analysis.  
-They are meant to provide orientation within the role landscape, but their number and definition can vary significantly.  
+They are meant to provide orientation within the role landscape, but their number and definition can vary.  
 
-There is no fixed rule for how many roles should exist, this depends entirely on the chosen level of granularity and the perspective of the person building the model.  
+There is no fixed rule for how many roles should exist. This depends entirely on the chosen level of granularity and the perspective of the person building the model.  
 Simply increasing the number of clusters can split existing groups into finer shades of playing style, leading to new or more specific role labels.
 
 ---
