@@ -1,6 +1,6 @@
 # Football Player Role Explorer
 
-This project clusters professional football players based on their **playing styles**, not just positions or performance level. It leverages statistical modeling and dimensionality reduction to uncover **stylistic player roles**.
+This project clusters professional football players based on their **playing styles**, not just positions or performance level. It uses statistical modeling and dimensionality reduction to uncover **stylistic player roles**.
 
 ## 🔗 Streamlit App
 👉 [Click here to try the app](https://football-player-clustering.streamlit.app)
@@ -41,15 +41,16 @@ To explore these ideas and build a data-driven perspective on role interpretatio
 ## 🎯 Project Goals
 
 1. Identify **stylistic player archetypes** based on in-match behavior
-2. Provide a **scouting and comparison tool** using role-based context
-3. Visualize the high-dimensional structure of football styles in a **digestible format**
-4. Build a foundation for **future supervised models** of role classification
+2. Provide a **comparison tool** which makes use of this role distinctions
+3. Visualize the high-dimensional structure of football styles in a **digestible format** (2 dimnensional)
+4. Build a foundation for future **supervised models** of role classification
 
 ---
 
 ## 🔄 Data Collection & Preprocessing
 
-- **Data Source**: FBref.com (top 5 European leagues) - For more detail on the preprocessing pipeline and raw stat breakdown, see my other project: [Football Player Analysis Tool](https://github.com/LucaLoeschmann/Football-Player-Analysis-25) where im using the oufield data from.
+- **Data Source**: FBref.com (top 5 European leagues) - For more detail on the preprocessing, see my other project: [Football Player Analysis Tool](https://github.com/LucaLoeschmann/Football-Player-Analysis-25) where I'm using the oufield data from.
+  
 - **Feature Engineering**:
   - Per-90 normalization for all performance metrics
   - Reducing the initial pool of 100+ features to a carefully selected subset using cross-validation. The chosen stats aim to reflect a wide spectrum of football actions — from attacking and possession to defensive contributions.
@@ -57,12 +58,12 @@ To explore these ideas and build a data-driven perspective on role interpretatio
 - **Dimensionality Reduction**:
   - PCA with `n_components=0.93` (retaining ~93% explained variance)
 - **Clustering Algorithms**:
-  - Ward’s Hierarchical Clustering (primary)
+  - Ward’s Hierarchical Clustering
   - Other methods (KMeans, DBSCAN) tested during prototyping
 - **Validation Metrics**:
-  - Silhouette Score (internal cohesion)
-  - Cross-validation with bootstrapped stability metrics
-  - Composite role quality index used to choose optimal PCA depth and cluster count (n=12)
+  - Silhouette Score 
+  - Cross-validation 
+  - Composite role quality index used to choose PCA depth and cluster count (n=12)
 
 
 ---
@@ -91,10 +92,14 @@ Feature selection was driven by relevance to role detection, not performance rat
 
 The final clusters were **manually interpreted** and assigned descriptive role labels like:
 - "No.10 / Playmaker"
-- "Inverted Fullback"
+- "Holding Midfielder / Destroyer"
 - "Target Man"
 
-These are not fixed truths — just approximations to help explore a role landscape.
+These roles are not absolute truths, but rather interpretative labels, based on statistical groupings, perceived on-pitch function, and personal analysis.  
+They are meant to provide orientation within the role landscape, but their number and definition can vary significantly.  
+
+There is no fixed rule for how many roles should exist, this depends entirely on the chosen level of granularity and the perspective of the person building the model.  
+Simply increasing the number of clusters can split existing groups into finer shades of playing style, leading to new or more specific role labels.
 
 ---
 
