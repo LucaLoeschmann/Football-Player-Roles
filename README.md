@@ -49,7 +49,7 @@ To explore these ideas and build a data-driven perspective on role interpretatio
 
 ## 🔄 Data Collection & Preprocessing
 
-- **Data Source**: FBref.com (top 5 European leagues) - For more detail on the preprocessing pipeline and raw stat breakdown, see my other project: [Football Player Analysis Model](https://github.com/LucaLoeschmann/Football-Player-Analysis-25) where im using the oufield data from.
+- **Data Source**: FBref.com (top 5 European leagues) - For more detail on the preprocessing pipeline and raw stat breakdown, see my other project: [Football Player Analysis Tool](https://github.com/LucaLoeschmann/Football-Player-Analysis-25) where im using the oufield data from.
 - **Feature Engineering**:
   - Per-90 normalization for all performance metrics
   - Reducing the initial pool of 100+ features to a carefully selected subset using cross-validation. The chosen stats aim to reflect a wide spectrum of football actions — from attacking and possession to defensive contributions.
