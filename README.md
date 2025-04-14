@@ -10,8 +10,8 @@ This project clusters professional football players based on their **playing sty
 ## 📚 Table of Contents
 
 - [📖 Project Overview](#-project-overview)
-- [🧪 Methodology](#-methodology)
 - [🎯 Project Goals](#-project-goals)
+- [🔄 Data Collection & Preprocessing](#-data-collection--preprocessing)
 - [✨ Key Features](#-key-features)
 - [🧠 Role Logic & Feature Design](#-role-logic--feature-design)
 - [📊 UMAP & Multi-Role Projection](#-umap--multi-role-projection)
@@ -24,36 +24,17 @@ This project clusters professional football players based on their **playing sty
 
 The traditional classification of football players into Defenders, Midfielders, and Forwards has long been outdated. For years, football analysts have moved beyond these oversimplified categories. While positional labels may still provide a rough idea of a player’s function, they fall short in capturing the full complexity of individual playing styles.
 
-The ongoing data revolution in elite football now makes it possible to identify **nuanced player roles** and to break them down further into specific profiles. What if players weren't defined solely by their position on paper — which is often static and fails to represent the fluid nature of a 90-minute match? What if we could instead track and quantify a player’s **true role on the pitch**, across different situations, tactical instructions, and phases of play?
+The ongoing data revolution in elite football now makes it possible to identify **nuanced player roles** and to break them down further into specific profiles. What if players weren't defined solely by their position on paper, which is often static and fails to represent the fluid nature of a 90-minute match? What if we could instead track and quantify a player’s **"true role" on the pitch**, across different situations, tactical instructions, and phases of play?
 
 Two players listed as full-backs might play entirely different roles:
-- One may act as an attacking wide creator, overlapping like a winger,
-- The other may stay deep and focus solely on defensive duties.
+- One may act as an attacking wide creator, overlapping like a winger
+- The other may stay deep and focus solely on defensive duties
 
 Likewise, a defensive midfielder (No. 6) might either:
-- Dictate the game with his passing,
-- Or function primarily as a destroyer, breaking up opposition attacks.
+- Dictate the game with his passing
+- Function primarily as a destroyer, breaking up opposing attacks
 
-To explore these ideas and build a data-driven perspective on role interpretation, I created this clustering model that tries to answer: **How can we best group players based on what they do – not where they stand?**
-
----
-
-## 🧪 Methodology
-
-- **Data Source**: FBref.com (top European leagues)
-- **Feature Engineering**:
-  - Per-90 normalization for all performance metrics
-  - Carefully selected features representing attacking, possession, and defensive behavior
-  - Aggregated by player-season
-- **Dimensionality Reduction**:
-  - PCA with `n_components=0.93` (retaining ~93% explained variance)
-- **Clustering Algorithms**:
-  - Ward’s Hierarchical Clustering (primary)
-  - Other methods (KMeans, PAM) tested during prototyping
-- **Validation Metrics**:
-  - Silhouette Score (internal cohesion)
-  - Cross-validation with bootstrapped stability metrics
-  - Composite role quality index used to choose optimal PCA depth and cluster count (n=12)
+To explore these ideas and build a data-driven perspective on role interpretation, I created this clustering model that tries to answer: **How can we  group players based on what they actually do in the pitch?**
 
 ---
 
@@ -63,6 +44,26 @@ To explore these ideas and build a data-driven perspective on role interpretatio
 2. Provide a **scouting and comparison tool** using role-based context
 3. Visualize the high-dimensional structure of football styles in a **digestible format**
 4. Build a foundation for **future supervised models** of role classification
+
+---
+
+## 🔄 Data Collection & Preprocessing
+
+- **Data Source**: FBref.com (top 5 European leagues) - For more detail on the preprocessing pipeline and raw stat breakdown, see my other project: [Football Player Analysis Model](https://github.com/LucaLoeschmann/Football-Player-Analysis-25) where im using the oufield data from.
+- **Feature Engineering**:
+  - Per-90 normalization for all performance metrics
+  - Reducing the initial pool of 100+ features to a carefully selected subset using cross-validation. The chosen stats aim to reflect a wide spectrum of football actions — from attacking and possession to defensive contributions.
+  - Aggregated by player-season
+- **Dimensionality Reduction**:
+  - PCA with `n_components=0.93` (retaining ~93% explained variance)
+- **Clustering Algorithms**:
+  - Ward’s Hierarchical Clustering (primary)
+  - Other methods (KMeans, DBSCAN) tested during prototyping
+- **Validation Metrics**:
+  - Silhouette Score (internal cohesion)
+  - Cross-validation with bootstrapped stability metrics
+  - Composite role quality index used to choose optimal PCA depth and cluster count (n=12)
+
 
 ---
 
@@ -82,7 +83,9 @@ To explore these ideas and build a data-driven perspective on role interpretatio
 
 ## 🧠 Role Logic & Feature Design
 
-The model is heavily inspired by the work of Ian Graham (Liverpool FC) and others who emphasize **behavior-based grouping** over label-driven categorization. Rather than predefining roles, the model identifies statistical similarities in how players contribute on the pitch.
+This model is my personal attempt to explore which on-pitch statistics truly matter. The feature selection process was done by myself, based on experimentation and my previous football knowledge. The core inspiration for this project, however, came from the book “How to Win the Premier League” by Ian Graham, former Director of Research at Liverpool FC. A special thanks to him.
+
+Rather than predefining roles, the model identifies statistical similarities in how players contribute on the pitch.
 
 Feature selection was driven by relevance to role detection, not performance rating. Metrics like "Miscontrols" or "Touches in Final Third" were included because they describe **how** a player engages with the game, not **how well**.
 
@@ -100,20 +103,23 @@ These are not fixed truths — just approximations to help explore a role landsc
 One of the key features of this project is the **UMAP-based 2D visualization**, which takes the 17-dimensional PCA output and reduces it to two dimensions.
 
 Why? Because cluster numbers don't tell the whole story. Players in different clusters might still be very close in playstyle — and vice versa. The UMAP projection provides:
-- A **bird’s-eye view** of how similar or dissimilar players are
-- Context when players seem misclassified (e.g., creative fullbacks vs. inverted wingers)
-- Insight into **stylistic overlap** between clusters
+- A **bird’s-eye view** of how similar or dissimilar players are  
+- Context when players seem misclassified (e.g., creative fullbacks vs. inverted wingers)  
+- Insight into **stylistic overlap** between clusters  
+
+👉 Players who might appear *misclassified* based on their cluster label often sit **very close to stylistically similar players** in the UMAP space.  
+This reflects the reality that **role boundaries are fuzzy**, and UMAP helps visualize this fluidity.  
+It serves as a **complement to clustering**, capturing patterns that a discrete algorithm might miss.
 
 The map is designed as a **topological simplification** — a tool to aid intuition, not exact science. But it can help answer questions like:
 - Who plays most similarly to a given player?
 - Are there clusters that visibly overlap?
 - Which roles are most distinct?
-
 ---
 
 ## 🔧 Future Improvements
 
-- [ ] Integrate tracking data (heatmaps, zones)
+- [ ] Integrate tracking data like heatmaps
 - [ ] Include player-season dynamics (year-over-year role shift)
 - [ ] Add feedback loop for expert review of roles
 
