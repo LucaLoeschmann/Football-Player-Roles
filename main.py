@@ -17,7 +17,7 @@ data_dir = "data/"
 outfield_df = pd.read_parquet(data_dir + "outfield_df.parquet")
 
 # --- Initial Filter & Cleanup ---
-outfield_df = outfield_df[outfield_df["90s"] > 3].fillna(0)
+outfield_df = outfield_df[outfield_df["90s"] > 3]
 
 meta_columns = ["Player Name", "Nationality", "Position", "Team", "Competition", "Age"]
 features_for_clustering = [
