@@ -2,10 +2,6 @@
 
 This project clusters professional football players based on their **playing styles**, not just positions or performance level. It uses statistical modeling and dimensionality reduction to uncover **stylistic player roles**. In this project, I focus exclusively on outfield players, as they offer a much wider variety of roles and playing styles.
 
-## 🔗 Streamlit App
-👉 [Click here to try the app](https://football-player-roles.streamlit.app)
-
----
 
 ## 📚 Table of Contents
 
