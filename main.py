@@ -21,7 +21,7 @@ outfield_df = outfield_df[outfield_df["90s"] > 3]
 
 meta_columns = ["Player Name", "Nationality", "Position", "Team", "Competition", "Age"]
 features_for_clustering = [
-    "Goals-PK", "Shots","npxG", "xAG", "Assists", "Key Passes", "SCA", "GCA",
+    "Goals-PK", "xG","npxG+xAG","Shots","npxG", "xAG", "Assists", "Key Passes", "SCA", "GCA",
     "Passes Attempted", "Pass Completion Percentage", "Passes into Penalty Area", "Final Third Passes",
     "Through Balls", "Progressive Passes", "Switches", "Crosses",
     "Progressive Carries", "Carries", "Carries Into Final 3rd", "Carries Into Penalty Area",
